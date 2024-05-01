@@ -1,36 +1,71 @@
 import 'package:flutter/material.dart';
 
+const startAlignment = Alignment.topLeft;
+const endAlignment = Alignment.bottomRight;
+
 void main() {
   runApp(const MyApp());
 }
 
-// With Flutter, you create user interfaces by combining "widgets"
-// You'll learn all about them (and much more) throughout this course!
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // Every custom widget must have a build() method
-  // It tells Flutter, which widgets make up your custom widget
-  // Again: You'll learn all about that throughout the course!
+  void startQuiz() {
+  }
+
   @override
   Widget build(BuildContext context) {
-    // Below, a bunch of built-in widgets are used (provided by Flutter)
-    // They will be explained in the next sections
-    // In this course, you will, of course, not just use them a lot but
-    // also learn about many other widgets!
+    // TODO: implement build
     return MaterialApp(
-      title: 'Flutter First App 1_',
+
+      title: 'DDD',
       theme: ThemeData(useMaterial3: true),
       home: Scaffold(
-          backgroundColor: Colors.brown,
-          appBar: AppBar(
-            backgroundColor: Colors.brown,
-            title: const Text('Auction', style: TextStyle(fontSize: 44, color: Colors.white),),
+        backgroundColor: Color.fromRGBO(70, 4, 122, 100),
+        appBar: AppBar(
+          backgroundColor: Color.fromRGBO(70, 4, 122, 100),
+          // title: Text('Text', style: TextStyle(fontSize: 22, color:Colors.white), ),
+        ),
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color.fromRGBO(70, 4, 122, 100), Color.fromRGBO(70, 4, 122, 90)],
+              begin: startAlignment,
+              end: endAlignment
+            )
           ),
-          body: Container()
+          child:Center(
+             child:  Column(
+               mainAxisSize: MainAxisSize.min,
+               children: [
+                 Image.asset(
+                   'assets/images/quiz-logo.png',
+                   width: 200,
+                 ),
+                 const SizedBox(height: 20,),
+                 const Text('Learn Flutter the fun way', style: TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),),
+                 TextButton(
+                   onPressed: startQuiz,
+                   style: TextButton.styleFrom(
+                     padding: const EdgeInsets.only(
+                       top: 6,
+                       left: 10,
+                       right: 10,
+                       bottom: 6
+                     ),
+                     backgroundColor: Color.fromRGBO(70, 4, 122, 90),
+                     foregroundColor: Colors.white,
+                     textStyle: const TextStyle(
+                       fontSize: 20,
+                     ),
+                   ),
+                   child: const Text('Start Quiz'),
+                 )
+               ],
+             ),
+          )
+        ),
       ),
     );
   }
 }
-
-
