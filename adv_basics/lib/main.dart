@@ -6,7 +6,21 @@ const startAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
 
 void main() {
-  runApp(const MaterialApp(home: Scaffold(body: StartScreen())));
+  runApp(MaterialApp(
+      home: Scaffold(
+        body: Container(
+          decoration:const BoxDecoration(
+           gradient:  LinearGradient(
+              colors: [
+                Colors.black87, Colors.black
+              ]
+            ),
+          ),
+          child: const StartScreen()
+        ),
+      ),
+    ),
+  );
 }    
 
 // class MyApp extends StatelessWidget {
