@@ -13,7 +13,7 @@ class StartScreen extends StatelessWidget {
                 'assets/images/quiz-logo.png',
                 width: 300,),
               const SizedBox(height: 80,),
-              const Text('Lear Flutter the fun way!', style: TextStyle(),)
+              const Text('Learn4 1Flutter the fun way!', style: TextStyle(),)
            ],
          )
      );

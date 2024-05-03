@@ -1,5 +1,4 @@
 import 'package:adv_basics/start_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 const startAlignment = Alignment.topLeft;
