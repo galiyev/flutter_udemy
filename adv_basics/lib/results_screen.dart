@@ -3,9 +3,13 @@ import 'package:adv_basics/models/questions_summary.dart';
 import 'package:flutter/material.dart';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({super.key, required this.chosenAnswers});
+  const ResultScreen({super.key,
+    required this.chosenAnswers,
+    required this.onRestartQuiz});
 
   final List<String> chosenAnswers;
+  final void Function() onRestartQuiz;
+
 
   List<Map<String,Object>> getSummaryData(){
       final List<Map<String,Object>>  summary = [];
@@ -49,25 +53,21 @@ class ResultScreen extends StatelessWidget {
                     style:  const TextStyle(
                         color:  Color.fromARGB(
                             255, 217, 177, 246),
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold
                     ),
                 ),
                 const SizedBox(height: 30,),
                 QuestionsSummary(summaryData),
                 const SizedBox(height: 30,),
-                 ElevatedButton(
-                    onPressed: (){},
-                     style: ElevatedButton.styleFrom(
-                         padding: EdgeInsets.symmetric(
-                           vertical: 10,
-                           horizontal: 40,
-                         ),
-                         backgroundColor: Color.fromARGB(255, 117, 70, 204),
-                         foregroundColor: Colors.white,
-                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40))
-                     ),
-                    child: Text("Restart Quiz!"))
+                 OutlinedButton.icon(
+                      onPressed: onRestartQuiz,
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                      ),
+                      icon: const Icon(Icons.arrow_right_alt),
+                      label: const Text('Restart quiz'),
+                )
               ],
             )
       ),
