@@ -1,5 +1,3 @@
-import 'package:adv_basics/data/questions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class QuestionsSummary extends StatelessWidget
@@ -18,24 +16,67 @@ class QuestionsSummary extends StatelessWidget
           child: Column(
             children: summaryData.map(
                     (data){
-                       return Row(children: [
-                         Text(
-                             ((data['question_index'] as int) +1).toString(),
-
+                       return Row(
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                         children: [
+                         Padding(
+                           padding: const EdgeInsets.all(8.0),
+                           child: Container(
+                             width: 30,
+                             height: 30,
+                             decoration: data['is_right'] as bool?
+                             const BoxDecoration(
+                               color: Color.fromARGB(255, 118, 188, 240),
+                               shape: BoxShape.circle,
+                             )
+                             :const BoxDecoration(
+                             color: Color.fromARGB(255, 252, 104, 245),
+                             shape: BoxShape.circle,
+                             ),
+                             alignment: Alignment.center,
+                             child: Text(
+                                 ((data['question_index'] as int) +1).toString(),
+                                 style: const TextStyle(
+                                   fontWeight: FontWeight.bold,
+                                   color: Colors.white,
+                                   fontSize: 16,
+                                 ),
+                             ),
+                           ),
                          ),
                          Expanded(
                            child: Column(
+                             crossAxisAlignment: CrossAxisAlignment.start,
                              children: [
                                 Text(
                                   data['question'] as String,
                                   style:
                                     const TextStyle(
-                                      color: Color.fromARGB(255, 188, 176, 216),
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold
                                     ),
                                 ),
                                 const SizedBox(height: 5,),
-                                Text(data['user_answer'] as String),
-                                Text(data['correct_answer'] as String),
+                                Text(
+                                    data['user_answer'] as String,
+                                    style:
+                                    const TextStyle(
+                                        color: Color.fromARGB(
+                                            255, 180, 109, 239),
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold
+                                    ),
+                                ),
+                                Text(
+                                    data['correct_answer'] as String,
+                                    style:
+                                    const TextStyle(
+                                        color: Color.fromARGB(255, 23, 149, 227),
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold
+                                    ),
+                                ),
                              ],
                            ),
                          )

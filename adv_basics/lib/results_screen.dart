@@ -15,7 +15,8 @@ class ResultScreen extends StatelessWidget {
            'question_index':i,
            'question': questions[i].text,
            'correct_answer': questions[i].answers[0],
-           'user_answer':chosenAnswers[i]
+           'user_answer':chosenAnswers[i],
+           'is_right':questions[i].answers[0]==chosenAnswers[i]
          });
       }
 
@@ -41,9 +42,17 @@ class ResultScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children:  [
-                Text('You answered $numCorrectQuestions out of $numTotalQuestions questions correctly!'),
+                Text(
+                    'You answered $numCorrectQuestions '
+                        'out of $numTotalQuestions questions correctly!',
+                    style:  const TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold
+                    ),
+                ),
+
                 const SizedBox(height: 30,),
-                const Text('List of answers and questions...'),
                 QuestionsSummary(summaryData),
                 const SizedBox(height: 30,),
                  ElevatedButton(
