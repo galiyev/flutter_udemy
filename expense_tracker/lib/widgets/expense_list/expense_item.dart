@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../models/expense.dart';
+import '../../models/expense.dart';
 
 class ExpenseItem extends StatelessWidget {
   const ExpenseItem(this.expense, {super.key});
@@ -26,7 +26,7 @@ class ExpenseItem extends StatelessWidget {
                     style: const TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 20,
-                      color: Colors.brown
+                      color: Colors.purple
                     ),
                 ),
               ],
